@@ -1,25 +1,40 @@
-<nav>
-    <ul>
-        <li>
-            <a href="/">Inicio</a>
-        </li>
-        <li>
-            <a href="/projects">Proyectos</a>
-        </li>
-        <li>
-            <a href="/tasks">Tareas</a>
-        </li>
-        <li>
-            <a href="/about">Acerca de</a>
-        </li>
-        <li>
-            <a href="/create_task">Crear tarea</a>
-        </li>
-    </ul>
-</nav>
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}"></link>
+    <title>DJango Project</title>
+  </head>
+  <body>
+    <nav class="navbar container">
+      <ul>
+        <li>
+          <a href="{% url 'index' %}">Inicio</a>
+        </li>
+        <li>
+          <a href="{% url 'projects' %}">Proyectos</a>
+        </li>
+        <li>
+          <a href="{% url 'tasks' %}">Tareas</a>
+        </li>
+        <li>
+          <a href="{% url 'about' %}">Acerca de</a>
+        </li>
+        <li>
+          <a href="{% url 'create_task' %}">Crear tarea</a>
+        </li>
+        <li>
+          <a href="{% url 'create_project' %}">Crear projecto</a>
+        </li>
+      </ul>
+    </nav>
 
-{% block content %}
-    
-{% endblock content %}
-    
+    <div class="container">
+      {% block content %} {% endblock content %}
+    </div>
+  </body>
+</html>

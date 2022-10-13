@@ -1,8 +1,19 @@
-from cProfile import label
+from tkinter import Widget
 from django import forms
-from pkg_resources import require
 
 
 class CreateNewTask(forms.Form):
-    title = forms.CharField(label="Titulo", max_length=200)
-    description = forms.CharField(label='Descripcion', widget=forms.Textarea)
+    title = forms.CharField(
+        label="Titulo", max_length=200, widget=forms.TextInput(attrs={"class": "input"})
+    )
+    description = forms.CharField(
+        label="Descripcion", widget=forms.Textarea(attrs={"class": "input"})
+    )
+
+
+class CreateNewProject(forms.Form):
+    name = forms.CharField(
+        label="Proyecto",
+        max_length=200,
+        widget=forms.TextInput(attrs={"class": "input"}),
+    )
